@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Examen_Final.Models.contacto>
+@using React.Web.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contactos
+</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Contacto", "Create", "",new { @class= "waves-effect waves-light btn  light-blue accent-4" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nombre")
+        </th>
+        <th>
+            @Html.DisplayName("Apellido")
+        </th>
+        <th>
+            @Html.DisplayName("Identidad")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de creacion")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.identidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new { @class = "waves-effect waves-light btn yellow darken-4" }) 
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }, new { @class = "waves-effect waves-light btn light-green accent-4" }) 
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID }, new { @class = "waves-effect waves-light btn red accent-4" })
+        </td>
+    </tr>
+}
+
+</table>
+

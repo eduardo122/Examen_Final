@@ -1,0 +1,55 @@
+﻿@model Examen_Final.Models.contacto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h3>Seguro que quieres eliminar este contacto?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.identidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.identidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="waves-effect waves-light btn red accent-4" /> |
+        @Html.ActionLink("Regresar", "Index", null, new { @class = "waves-effect waves-light btn blue darken-3" })
+    </div>
+    }
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Examen_Final.Models.Visita>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Visitas</h2>
+
+<p>
+    @Html.ActionLink("Nueva Visita", "Create", "", new { @class = "waves-effect waves-light btn  light-blue accent-4" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Motivo de visita")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha")
+        </th>
+        <th>
+            @Html.DisplayName("Hora de entrada")
+        </th>
+        <th>
+            @Html.DisplayName("Hora de salida")
+        </th>
+        <th>
+            @Html.DisplayName("Nombre completo")
+           
+        </th>
+        <th>
+            @Html.DisplayName("Recibido por")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraEntrada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraSalida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contacto.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class= "waves-effect waves-light btn yellow darken-4" }) 
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }, new { @class = "waves-effect waves-light btn light-green accent-4" }) 
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID }, new { @class = "waves-effect waves-light btn red accent-4" })
+        </td>
+    </tr>
+}
+
+</table>
